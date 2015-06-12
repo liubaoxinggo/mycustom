@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <Button 
+        android:id="@+id/tab1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="tab 的各种shixian"/>
+    <Button 
+        android:id="@+id/download"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="DownLoadManager "/>
+    <Button 
+        android:id="@+id/myview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="动画   绘图  自定义view"/>
+    <Button 
+        android:id="@+id/tab2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+    <Button 
+        android:id="@+id/tab3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+    
+    <Button 
+        android:id="@+id/myview2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+    <Button 
+        android:id="@+id/myview3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=" "/>
+    <Button 
+        android:id="@+id/myview4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="videoview  "/>
+    <Button 
+        android:id="@+id/btn5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="db  "/>
+    <Button 
+        android:id="@+id/btn6"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+    <Button 
+        android:id="@+id/btn7"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+</LinearLayout>

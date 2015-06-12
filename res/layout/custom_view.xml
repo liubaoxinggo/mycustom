@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 记住这里自定义的属性需要加上自己的命名空间，命名空间的最后是自己工程的包名，而非自定View所在的包名 【如下：com.lbx.mycustomtab】-->
+<LinearLayout 
+    xmlns:my="http://schemas.android.com/apk/res/com.lbx.mycustomtab"  
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <com.lbx.mycustomtab.myview.CircleImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:src="@drawable/po"/>
+    <com.lbx.mycustomtab.myview.CornerImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:src="@drawable/po"
+        my:corner="14dp"/>
+    <ImageView
+        android:id="@+id/iv_move"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:src="@drawable/po"
+        />
+
+</LinearLayout>

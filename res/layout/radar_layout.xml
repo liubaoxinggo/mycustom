@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <FrameLayout
+            android:layout_width="240dip"
+            android:layout_height="240dip" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/act_radar_bg" />
+
+            <ImageView
+                android:id="@+id/im_scan"
+                android:layout_width="65dip"
+                android:layout_height="65dip"
+                android:layout_gravity="center"
+                android:src="@drawable/act_radar_scanning_03" />
+
+            <ImageView
+                android:id="@+id/im_dian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/act_radar_dian_03" />
+        </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#bbb" >
+
+        <ImageView
+            android:id="@+id/search_bg"
+            android:layout_width="360dp"
+            android:layout_height="360dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/gplus_search_bg" />
+
+        <ImageView
+            android:id="@+id/im_scan_1"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_alignParentBottom="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/gplus_search_args" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/locus_round_click" />
+    </RelativeLayout>
+
+</LinearLayout>

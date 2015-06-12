@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shareInterpolator="false">
+    <!-- interpolator 表示变化率，但不是运行速度。一个插补属性，可以将动画效果设置为加速，减速，反复，反弹等。默认为开始和结束慢中间快,
+         setInterpolator表示设置旋转速率。LinearInterpolator为匀速效果，Accelerateinterpolator为加速效果、DecelerateInterpolator为减速效果-->
+    <!--android:interpolator="@android:anim/linear_interpolator" 可以使动画不停顿 -->
+    <!-- 负数from——to负数:逆时针旋转; 正数from——to正数:顺时针旋转-->
+    <rotate 
+        android:interpolator="@android:anim/linear_interpolator"
+        android:pivotX="100%"
+        android:pivotY="0%"
+        android:detachWallpaper="true"
+        android:fromDegrees="0"
+        android:toDegrees="359"
+        android:duration="3000"
+        android:startOffset="-1"
+        android:repeatMode="restart"
+        android:repeatCount="infinite"/>
+
+</set>

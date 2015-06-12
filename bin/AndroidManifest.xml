@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lbx.mycustomtab"
+    android:versionCode="2"
+    android:versionName="1.0.2" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:name="com.lbx.mycustomtab.TApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+        >
+<!--             android:name="com.lbx.mycustomtab.Launcher" -->
+        <activity
+            android:name="com.lbx.mycustomtab.Launcher"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>     
+        <activity
+            android:name="com.lbx.mycustomtab.Tab"/>
+        <activity
+            android:name="com.lbx.mycustomtab.AnimAndView"/>
+        <activity
+            android:name="com.lbx.mycustomtab.AnimAndView01"/>
+        <activity
+            android:name=".tab1.MainActivity"/>
+        <activity
+            android:name=".tab2.MainTabActivity"/>
+        <activity
+            android:name=".tab3.MainActivity03"/>
+        <activity
+            android:name="com.lbx.mycustomtab.anim.WaterWaveAnimActivity"/>
+        <activity
+            android:name="com.lbx.mycustomtab.anim.AnimActivity"/>
+        <activity
+            android:name="com.lbx.mycustomtab.anim.LayoutAnimationControllerActivity"/>
+        <activity
+            android:name="com.lbx.mycustomtab.anim.CustomItemAnimationActivity"/>
+        <activity
+            android:name="com.lbx.mycustomtab.anim.ShakingAnimationActivity"/>
+        <activity
+            android:name=".myviewactivity.MyViewActivity1"/>
+        <activity
+            android:name=".myviewactivity.MyViewActivity2"/>
+        <activity
+            android:name=".myviewactivity.MyViewActivity3"/>
+        <activity
+            android:name=".myviewactivity.SearchDevicesActivity"/>
+        <activity
+            android:name=".myviewactivity.RadarActivity"/>
+        <activity
+            android:name=".myviewactivity.IrregularGraphicsActivity"/>
+        <activity
+            android:name=".myviewactivity.PathActivity"/>
+        <activity
+            android:name=".myviewactivity.RegionActivity"/>
+        <activity
+            android:name=".myviewactivity.CustomViewActivity"/>
+        <activity
+            android:name=".myviewactivity.NineOldAndroidAnimationLoading"/>
+        <activity
+            android:name=".myviewactivity.NineOldBallActivity"/>
+        <activity
+            android:name=".myviewactivity.TestSlidingMenuActivity"/>
+        <activity
+            android:name=".media.VideoActivity"/>
+        <activity android:name="com.lbx.mycustomtab.service.TestServiceActivity"/> 
+        <service android:name="com.lbx.mycustomtab.service.TabService"></service>
+            
+        
+    </application>
+
+</manifest>
