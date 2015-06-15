@@ -39,7 +39,7 @@ public class Launcher extends Activity implements OnClickListener{
 	}
 	void init(){
 		btn1 = (Button)findViewById(R.id.btn1);
-		btn1.setText("tab 的各种显示11");
+		btn1.setText("tab 的各种显示33");
 		btn1.setOnClickListener(this);
 		btn2 = (Button)findViewById(R.id.btn2);
 		btn2.setText("DownLoadManager");
