@@ -24,16 +24,19 @@ public class VideoActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		getWindow().setFormat(PixelFormat.TRANSLUCENT);
 		setContentView(R.layout.video);
-		String path = Environment.getExternalStorageDirectory().getAbsolutePath()+"/ucall/dsgw/pp.mp4";
+		String path = Environment.getExternalStorageDirectory().getAbsolutePath()+"/ucall/dsgw/1.mp4";
 		video = (VideoView)findViewById(R.id.videoview);
 		File clip = new File(path);
-		Log.i("infos", "????????"+clip.exists());
+		Log.i("infos", "播放文件是否存在："+clip.exists());
 		if(clip.exists()){
-			video.setVideoPath(clip.getAbsolutePath());
+			video.setVideoURI(Uri.fromFile(clip));//http://196.9.200.221:8090/video/1.mp4
+//			video.setVideoURI(Uri.parse("http://196.9.200.221:8090/video/1.mp4"));
+//			video.setVideoPath(clip.getAbsolutePath());
 			ctrl = new MediaController(this);
 			ctrl.setMediaPlayer(video);
 			video.setMediaController(ctrl);
 			video.requestFocus();
+			 
 		}
 	}
 }

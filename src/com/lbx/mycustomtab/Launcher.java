@@ -23,12 +23,16 @@ import android.widget.Button;
 import com.lbx.mycustomtab.R;
 import com.lbx.mycustomtab.entity.Fav;
 import com.lbx.mycustomtab.entity.User;
+import com.lbx.mycustomtab.media.VideoActivity;
+import com.lbx.mycustomtab.myviewactivity.SurfaceViewActivity;
+import com.lbx.mycustomtab.myviewactivity.VolleyActivity;
+import com.lbx.mycustomtab.picasso.PicassoActivity;
 import com.lbx.mycustomtab.service.TestServiceActivity;
 import com.lbx.mycustomtab.util.DBHelper;
 import com.lbx.mycustomtab.util.GetPathFromUri;
 
 public class Launcher extends Activity implements OnClickListener{
-	Button btn1,btn2,btn3,btn4,btn5,btn6;
+	Button btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn10;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -56,6 +60,20 @@ public class Launcher extends Activity implements OnClickListener{
 		btn6 = (Button)findViewById(R.id.btn6);
 		btn6.setText("动画   绘图  自定义view");
 		btn6.setOnClickListener(this);
+		btn7 = (Button)findViewById(R.id.btn7);
+		btn7.setText("SurfaceView");
+		btn7.setOnClickListener(this);
+		btn8 = (Button)findViewById(R.id.btn8);
+		btn8.setText("VideoView");
+		btn8.setOnClickListener(this);
+		
+		btn9 = (Button)findViewById(R.id.btn9);
+		btn9.setText("Volley");
+		btn9.setOnClickListener(this);
+		
+		btn10 = (Button)findViewById(R.id.btn10);
+		btn10.setText("Picasso");
+		btn10.setOnClickListener(this);
 	}
 	@Override
 	public void onClick(View v) {
@@ -63,8 +81,8 @@ public class Launcher extends Activity implements OnClickListener{
 		if(v == btn1){
 			startActivity(new Intent(this, Tab.class));
 		}else if(v == btn2){
-			getPath();
-//			download();
+//			getPath();
+			download();
 		}else if(v == btn3){
 			startActivity(new Intent(this, AnimAndView.class));
 		}else if(v == btn4){
@@ -73,6 +91,14 @@ public class Launcher extends Activity implements OnClickListener{
 			startActivity(new Intent(Launcher.this, TestServiceActivity.class));
 		}else if(v == btn6){
 			startActivity(new Intent(this, AnimAndView01.class));
+		}else if(v == btn7){
+			startActivity(new Intent(this, SurfaceViewActivity.class));
+		}else if(v == btn8){
+			startActivity(new Intent(this, VideoActivity.class));
+		}else if(v == btn9){
+			startActivity(new Intent(this, VolleyActivity.class));
+		}else if(v == btn10){
+			startActivity(new Intent(this, PicassoActivity.class));
 		}
 	}
 	@Override
@@ -139,7 +165,7 @@ public class Launcher extends Activity implements OnClickListener{
 		}.execute();
 	}
 	void getPath(){
-		Uri uri = Uri.parse("content://downloads/my_downloads/3");
+		Uri uri = Uri.parse("content://downloads/my_downloads/4");
 		Log.i("infos", "GetPathFromUri.getDataColumn : "+GetPathFromUri.getDataColumn(this, uri, null, null));
 		Log.i("infos", "GetPathFromUri.getPath : "+GetPathFromUri.getPath(this, uri));
 		Log.i("infos", "getScheme : "+uri.getScheme());
@@ -148,13 +174,28 @@ public class Launcher extends Activity implements OnClickListener{
 		Log.i("infos", "getAuthority : "+uri.getAuthority());
 		Log.i("infos", "getEncodedPath : "+uri.getEncodedPath());
 	}
+	/*
+	07-27 14:25:01.968: I/infos(13962): GetPathFromUri.getDataColumn : /data/data/com.android.providers.downloads/cache/ucallmaster.1.0.0.apk
+	07-27 14:25:01.978: I/infos(13962): GetPathFromUri.getPath : /data/data/com.android.providers.downloads/cache/ucallmaster.1.0.0.apk
+	07-27 14:25:01.978: I/infos(13962): getScheme : content
+	07-27 14:25:01.978: I/infos(13962): getPath : /my_downloads/4
+	07-27 14:25:01.978: I/infos(13962): getPort : -1
+	07-27 14:25:01.978: I/infos(13962): getAuthority : downloads
+	07-27 14:25:01.978: I/infos(13962): getEncodedPath : /my_downloads/4*/
+
 	void download(){
 		DownloadManager downloadManager = (DownloadManager)getSystemService(Context.DOWNLOAD_SERVICE);
 		Uri uri = Uri.parse("http://app.fhit.com.cn/ucall/uploads/apks/ucallmaster.1.0.0.apk");
 		DownloadManager.Request request = new Request(uri);
 		request.setAllowedNetworkTypes(Request.NETWORK_WIFI);//只有连接到WiFi时才进行大文件的下载
+		request.setVisibleInDownloadsUi(true);
+		request.setTitle("UCall下载");
+		request.setDescription("UCall下载中。。。description");
+		request.setDestinationInExternalPublicDir("ucall", "ucallmaster.1.0.0.apk");
+		request.setNotificationVisibility(Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+//		request.setMimeType("");
 		long reference = downloadManager.enqueue(request);
-		Log.i("infos", "download() reference = "+reference);
+		Log.i("AAA", "download() reference = "+reference);
 	}
 	void initReceiver(){
 		IntentFilter  filter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
@@ -172,18 +213,32 @@ public class Launcher extends Activity implements OnClickListener{
 					DownloadManager downloadManager = (DownloadManager)getSystemService(Context.DOWNLOAD_SERVICE);
 					ParcelFileDescriptor pfd = downloadManager.openDownloadedFile(refernce);
 					Uri uri = downloadManager.getUriForDownloadedFile(refernce);
-					Log.i("infos", "文件下载："+uri);
+					Log.i("AAA", "文件下载："+uri);
+					install(context, uri);
 				} catch (FileNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}else if(action.equals(DownloadManager.ACTION_NOTIFICATION_CLICKED)){
+				Log.i("AAA", "文件下载：DownloadManager.ACTION_NOTIFICATION_CLICKED");
 				
 			}else if(action.equals(DownloadManager.ACTION_VIEW_DOWNLOADS)){
 				
+				Log.i("AAA", "文件下载:DownloadManager.ACTION_VIEW_DOWNLOADS");
 			}
 		}
 	};
+	/**
+	 * 安装
+	 * @param context
+	 * @param downloadFileUri
+	 */
+	public void install(Context context,Uri downloadFileUri){
+		   Intent install = new Intent(Intent.ACTION_VIEW);
+           install.setDataAndType(downloadFileUri, "application/vnd.android.package-archive");
+           install.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+           context.startActivity(install); 
+	}
 	
 }
 

@@ -211,7 +211,16 @@ public class AnimActivity extends Activity implements OnClickListener{
 	}
 
 	private void testAlphaAnimator() {
-		ObjectAnimator.ofFloat(iv6, "alpha", 1.0f,0.1f,01f,1f).setDuration(4000).start();
+		ObjectAnimator oa = ObjectAnimator.ofFloat(iv6, "alpha", 1.0f,0.1f,01f,1f).setDuration(1000);
+		oa.addUpdateListener(new AnimatorUpdateListener() {
+			
+			@Override
+			public void onAnimationUpdate(ValueAnimator animation) {
+				// TODO Auto-generated method stub
+				Log.i("anim", "CurrentPlayTime="+animation.getCurrentPlayTime()+" / Duration="+animation.getDuration()+" / AnimatedValue="+animation.getAnimatedValue()); 
+			}
+		});
+		oa.start();
 	}
 	private void testTranslationXAnimator() {
 		ObjectAnimator.ofFloat(iv7, "translationX", 0f,30f,0f).setDuration(2000).start();
@@ -220,7 +229,17 @@ public class AnimActivity extends Activity implements OnClickListener{
 		ObjectAnimator.ofFloat(iv8, "translationY", 0f,30f,-30f).setDuration(2000).start();
 	}
 	private void testRotationXAnimator() {
-		ObjectAnimator.ofFloat(iv9, "rotationX", 0f,180f,30f).setDuration(2000).start();
+		ObjectAnimator oa = ObjectAnimator.ofFloat(iv9, "rotationX", 0f,180f,30f).setDuration(2000);
+		oa.addUpdateListener(new AnimatorUpdateListener() {
+			
+			@Override
+			public void onAnimationUpdate(ValueAnimator animation) {
+				// TODO Auto-generated method stub
+				Log.i("anim", "CurrentPlayTime="+animation.getCurrentPlayTime()+" / Duration="+animation.getDuration()+" / AnimatedValue="+animation.getAnimatedValue()); 
+				
+			}
+		});
+		oa.start();
 	}
 	private void testRotationYAnimator() {
 		ObjectAnimator.ofFloat(iv10, "rotationY", 0f,180f,60f).setDuration(2000).start();

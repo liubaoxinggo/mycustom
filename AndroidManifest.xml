@@ -73,6 +73,12 @@
         <activity
             android:name=".myviewactivity.TestSlidingMenuActivity"/>
         <activity
+            android:name=".myviewactivity.SurfaceViewActivity"/>
+        <activity
+            android:name=".myviewactivity.VolleyActivity"/>
+        <activity
+            android:name=".picasso.PicassoActivity"/>
+        <activity
             android:name=".media.VideoActivity"/>
         <activity android:name="com.lbx.mycustomtab.service.TestServiceActivity"/> 
         <service android:name="com.lbx.mycustomtab.service.TabService"></service>

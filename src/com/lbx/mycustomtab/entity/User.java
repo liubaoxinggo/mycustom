@@ -1,12 +1,21 @@
 package com.lbx.mycustomtab.entity;
 
+import net.tsz.afinal.annotation.sqlite.Property;
+import net.tsz.afinal.annotation.sqlite.Table;
+import net.tsz.afinal.annotation.sqlite.Transient;
+
+@Table(name="user")
 public class User {
 
 	public int id;
+	@Property(column="uname") 
 	public String name;
 	public String pwd;
 	public String Tags;
 	public int age;
+	 
+	public String content;
+	
 	public int getAge() {
 		return age;
 	}
